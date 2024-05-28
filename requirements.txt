@@ -1,0 +1,9 @@
+# api
+fastapi
+uvicorn[standard]
+pydantic-settings
+loguru
+python-dotenv
+# monitoring
+black
+tqdm
