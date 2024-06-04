@@ -4,6 +4,7 @@ uvicorn[standard]
 pydantic-settings
 loguru
 python-dotenv
+janus-swi
 # monitoring
 black
 tqdm
