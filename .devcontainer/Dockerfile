@@ -13,9 +13,6 @@ RUN apt-get update && \
 # Output Prolog version
 RUN swipl --version
 
-# Set the current working directory to /code
-WORKDIR /code
-
 # Create a virtual environment
 RUN python3 -m venv venv
 ENV PATH="/code/venv/bin:$PATH"
@@ -25,12 +22,3 @@ COPY ./requirements.txt /code/requirements.txt
 
 # Install the package dependencies in the requirements file using the virtual environment
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
-
-# Copy the ./app directory inside the /code directory
-COPY ./app /code/app
-
-# Copy the .env file inside the /code directory (if it exists)
-COPY ./.env /code/.env
-
-# Set the command to run the uvicorn server
-CMD ["uvicorn", "app.main:app", "--port", "4000", "--host", "0.0.0.0"]
