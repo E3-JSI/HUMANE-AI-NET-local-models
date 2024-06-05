@@ -8,3 +8,6 @@ janus-swi
 # monitoring
 black
 tqdm
+# testing
+pytest
+httpx
