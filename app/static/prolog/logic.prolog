@@ -87,7 +87,8 @@ sectionPrerequisitesMet(Section, GoalConcept, PrerequisiteSection) :-
 % hasLearnedConcept(computer_programs_and_business_logic).
 % hasLearnedConcept(limitations_of_traditional_programs).
 % hasLearnedConcept(introduction_to_machine_learning).
-% hasLearnedConcept(distinction_from_traditional_programming).
-% hasLearnedConcept(definition_of_machine_learning).
-% hasLearnedConcept(applications_of_machine_learning).
-% hasLearnedConcept(calculus_basics).
+% hasLearnedConcept().
+% hasLearnedConcept().
+% hasLearnedConcept().
+% hasLearnedConcept().
+

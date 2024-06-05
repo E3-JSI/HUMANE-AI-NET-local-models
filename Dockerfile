@@ -5,6 +5,7 @@ FROM swipl:9.2.5
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Update the repository and install Python, pip, and venv
+# TODO: Use python 3.10
 RUN apt-get update && \
     apt-get install -y python3-pip python3-dev python3-venv && \
     apt-get clean && \

@@ -42,9 +42,8 @@ async def test() -> JSONResponse:
     description="Get the next step.",
 )
 async def api_next_step(data: NextStepInput) -> Any:
-    next_step = get_next_step(data.domain, data.goals, data.learned)
+    next_steps = get_next_step(data.domain, data.goals, data.learned)
 
-    for n in next_step:
-        print(n)
-
-    # return JSONResponse(next)
+    return JSONResponse({
+        "next_steps": next_steps
+    })

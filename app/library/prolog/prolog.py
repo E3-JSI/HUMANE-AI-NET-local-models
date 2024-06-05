@@ -15,7 +15,7 @@ def load_logic():
     janus.consult(str(path))
 
 
-def get_next_step(domain: str, goals: List[str], learned: List[str]):
+def get_next_step(domain: str, goals: List[str], learned: List[str]) -> List[str]:
     load_concepts(domain)
     load_logic()
 
@@ -30,5 +30,9 @@ def get_next_step(domain: str, goals: List[str], learned: List[str]):
     # get next step
     next_step = janus.query("nextStep(X).")
 
-    return next_step
+    next_steps = []
+    for step in next_step:
+        next_steps.append(step["X"])
+
+    return next_steps
 
