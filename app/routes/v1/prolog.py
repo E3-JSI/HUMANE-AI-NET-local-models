@@ -42,6 +42,12 @@ async def test() -> JSONResponse:
     description="Get the next step.",
 )
 async def api_next_step(data: NextStepInput) -> Any:
+    # domain="d2l" not supported right now
+    if data.domain != "d2l":
+        return JSONResponse({
+            "error": "Domain not supported."
+        }, status_code=status.HTTP_400_BAD_REQUEST)
+
     next_steps = get_next_step(data.domain, data.goals, data.learned)
 
     return JSONResponse({
