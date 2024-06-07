@@ -41,34 +41,13 @@ async def test() -> JSONResponse:
     description="Get the next step.",
 )
 async def api_next_step(data: NextStepInput) -> Any:
-    # domain="d2l" not supported right now
-    if data.domain != "d2l":
-        return JSONResponse({
-            "error": "Domain not supported."
-        }, status_code=status.HTTP_400_BAD_REQUEST)
+    goals = wiki_to_concept(data.domain, data.goals)
+    learned = wiki_to_concept(data.domain, data.learned)
 
-    next_steps = get_next_step(data.domain, data.goals, data.learned)
+    next_steps = get_next_step(data.domain, goals, learned)
+    next_steps = concept_to_wiki(data.domain, next_steps)
 
     return JSONResponse({
         "next_steps": next_steps
     })
 
-
-@router.post(
-    "/concepts",
-    status_code=status.HTTP_200_OK,
-    description="Get concepts.",
-)
-async def api_concepts(domain: str) -> Any:
-    return JSONResponse({
-        "concepts": get_concepts(domain)
-    })
-
-
-@router.get(
-    "/wikipedia_mapping",
-    status_code=status.HTTP_200_OK,
-    description="Get wikipedia mapping.",
-)
-async def api_wikipedia_mapping(domain: str) -> Any:
-    return JSONResponse(get_wikipedia_mapping(domain))

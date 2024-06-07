@@ -31,11 +31,15 @@ def get_next_step(domain: str, goals: List[str], learned: List[str]) -> List[str
     load_logic()
 
     # add goals
-    if len(goals) != 0:
-        janus.consult("goals", "\n".join([f"hasGoal({goal})." for goal in preprocess_terms(goals)]))
+    if len(goals) == 0:
+        print("No goals provided.")
+        return []
+        
+    janus.consult("goals", "\n".join([f"hasGoal({goal})." for goal in preprocess_terms(goals)]))
 
     # add learned
     if len(learned) != 0:
+        print(learned)
         janus.consult("learned", "\n".join([f"hasLearnedConcept({learned})." for learned in preprocess_terms(learned)]))
 
     # get next step
@@ -75,6 +79,18 @@ def get_wikipedia_concepts(domain: str):
         return json.load(f)
 
 
+def reverse_mapping(d: dict[str, List[str]]) -> dict:
+    new_dict = {}
+    for k, v in d.items():
+        for item in v:
+            if item in new_dict:
+                new_dict[item].append(k)
+            else:
+                new_dict[item] = [k]
+
+    return new_dict
+
+
 def get_wikipedia_mapping(domain: str):
     mapping_path = STATIC_PATH / "wikipedia" / f"{domain}_mapping.json"
 
@@ -97,3 +113,33 @@ def get_wikipedia_mapping(domain: str):
         json.dump(concept_map, f)
 
     return concept_map
+
+
+def concept_to_wiki(domain: str, terms: List[str]):
+    """
+    Maps Prolog concepts to Wikipedia concepts
+    """
+    mapping = get_wikipedia_mapping(domain)
+
+    concepts = []
+    for term in terms:
+        if term in mapping:
+            concepts.extend(mapping[term])
+
+    return list(set(concepts))
+
+
+def wiki_to_concept(domain: str, terms: List[str]):
+    """
+    Maps Wikipedia concepts to Prolog concepts
+    """
+    mapping = get_wikipedia_mapping(domain)
+    reverse_map = reverse_mapping(mapping)
+
+    concepts = []
+    for term in terms:
+        if term in reverse_map:
+            concepts.extend(reverse_map[term])
+
+    return list(set(concepts))
+
