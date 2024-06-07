@@ -1,11 +1,10 @@
 import janus_swi as janus
-
 from typing import Any, List
 from fastapi import APIRouter, status
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
-from app.library.prolog import get_next_step, get_concepts
+from app.library.prolog import *
 
 router = APIRouter()
 
@@ -64,3 +63,12 @@ async def api_concepts(domain: str) -> Any:
     return JSONResponse({
         "concepts": get_concepts(domain)
     })
+
+
+@router.get(
+    "/wikipedia_mapping",
+    status_code=status.HTTP_200_OK,
+    description="Get wikipedia mapping.",
+)
+async def api_wikipedia_mapping(domain: str) -> Any:
+    return JSONResponse(get_wikipedia_mapping(domain))

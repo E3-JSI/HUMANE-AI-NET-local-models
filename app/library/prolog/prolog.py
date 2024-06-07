@@ -1,6 +1,8 @@
+import json
 from typing import List
 import janus_swi as janus
 
+from app.library.llm.chains import wiki_concept_mapping
 from app.static import STATIC_PATH
 
 
@@ -22,6 +24,7 @@ def preprocess_terms(terms: List[str]) -> List[str]:
             terms[i] = f"'{term}'"
 
     return terms
+
 
 def get_next_step(domain: str, goals: List[str], learned: List[str]) -> List[str]:
     load_concepts(domain)
@@ -62,3 +65,35 @@ def get_concepts(domain: str) -> List[str]:
     concepts_list = preprocess_terms(concepts_list)
 
     return concepts_list
+
+
+def get_wikipedia_concepts(domain: str):
+    """
+    Loads from static/wikipedia_{domain}.json
+    """
+    with open(STATIC_PATH / 'wikipedia' / f"wikipedia_{domain}.json", "r") as f:
+        return json.load(f)
+
+
+def get_wikipedia_mapping(domain: str):
+    mapping_path = STATIC_PATH / "wikipedia" / f"{domain}_mapping.json"
+
+    # check if mapping exists
+    if mapping_path.exists():
+        with open(mapping_path, "r") as f:
+            return json.load(f)
+
+    concepts = get_concepts(domain)
+    wiki_concepts = get_wikipedia_concepts(domain)
+
+    chain = wiki_concept_mapping()
+    inputs = [{'domain': domain, 'concept': concept, 'wiki_concepts': json.dumps(wiki_concepts)} for concept in concepts]
+
+    results = chain.batch(inputs)
+    concept_map = {concept: result['wikipedia_concepts'] for concept, result in zip(concepts, results)}
+
+    # save mapping
+    with open(mapping_path, "w") as f:
+        json.dump(concept_map, f)
+
+    return concept_map

@@ -1,0 +1,229 @@
+{
+  "edit_distance": [
+    "String metric",
+    "Text processing"
+  ],
+  "'The Minimum Edit Distance Algorithm'": [
+    "Text processing",
+    "Text mining"
+  ],
+  "the_porter_stemmer": [
+    "Stemming"
+  ],
+  "'Lookahead Assertions'": [
+    "Syntactic parsing"
+  ],
+  "more_operators": [
+    "Natural-language understanding",
+    "Text processing",
+    "Text mining"
+  ],
+  "disjunction": [
+    "Semantic parsing"
+  ],
+  "words": [
+    "Word embedding",
+    "Word-sense disambiguation",
+    "Lexical analysis"
+  ],
+  "corpus": [
+    "Text corpus",
+    "Speech corpus",
+    "Corpus linguistics"
+  ],
+  "'Word Tokenization'": [
+    "Text segmentation",
+    "Word boundaries",
+    "Lexical analysis"
+  ],
+  "greedy_matching": [
+    "Semantic similarity"
+  ],
+  "concatenation": [
+    "N-gram",
+    "Bigram",
+    "Trigram"
+  ],
+  "sentence_segmentation": [
+    "Sentence boundary disambiguation",
+    "Text segmentation"
+  ],
+  "square_brackets": [
+    "Text processing",
+    "Lexical analysis"
+  ],
+  "'Substitution, Capture Groups, and ELIZA'": [
+    "Chatbot",
+    "Natural-language understanding",
+    "Natural Language Toolkit"
+  ],
+  "'Minimum Edit Distance'": [
+    "Levenshtein distance",
+    "Edit distance"
+  ],
+  "word_normalization": [
+    "Lemmatisation",
+    "Stemming"
+  ],
+  "word_tokenization": [
+    "Text segmentation",
+    "Lexical analysis",
+    "Word boundaries"
+  ],
+  "word_boundary": [
+    "Word boundaries"
+  ],
+  "case_folding": [
+    "Text processing"
+  ],
+  "basic_regular_expression_patterns": [
+    "Text processing"
+  ],
+  "dynamic_programming": [
+    "Parsing",
+    "Syntactic parsing",
+    "Semantic parsing"
+  ],
+  "substitution": [
+    "Text processing",
+    "Text simplification",
+    "Lemmatisation"
+  ],
+  "'Disjunction, Grouping, and Precedence'": [
+    "Parsing",
+    "Syntactic parsing"
+  ],
+  "'A More Complex Example'": [],
+  "lookahead_assertions": [
+    "Parsing",
+    "Syntactic parsing"
+  ],
+  "question_mark": [
+    "Question answering"
+  ],
+  "kleene_plus": [],
+  "parenthesis": [
+    "Syntax guessing",
+    "Parsing",
+    "Syntactic parsing"
+  ],
+  "top_down_tokenization": [
+    "Lexical analysis",
+    "Text segmentation"
+  ],
+  "precedence": [
+    "Parsing",
+    "Syntactic parsing"
+  ],
+  "'Word Normalization'": [
+    "Lemmatisation",
+    "Stemming"
+  ],
+  "lemmatization": [
+    "Lemmatisation"
+  ],
+  "byte_pair_encoding": [
+    "Word embedding"
+  ],
+  "bottom_up_tokenization": [
+    "Lexical analysis",
+    "Text segmentation"
+  ],
+  "'Byte-Pair Encoding'": [],
+  "regular_expression": [
+    "Text processing"
+  ],
+  "minimum_edit_distance": [
+    "Text processing"
+  ],
+  "Lemmatization": [
+    "Lemmatisation"
+  ],
+  "stemming": [
+    "Stemming"
+  ],
+  "Stemming": [
+    "Stemming"
+  ],
+  "simple_example": [
+    "Example-based machine translation"
+  ],
+  "text_normalization": [
+    "Lemmatisation",
+    "Stemming",
+    "Text processing"
+  ],
+  "kleene_star": [],
+  "'Top-down (rule-based) tokenization'": [
+    "Lexical analysis",
+    "Text segmentation"
+  ],
+  "simple_unix_tools_word_tokenization": [
+    "Text segmentation",
+    "Word boundaries"
+  ],
+  "'More Operators'": [
+    "Text processing",
+    "Natural-language understanding",
+    "Computational linguistics"
+  ],
+  "more_complex_example": [],
+  "lookahead_assertion": [
+    "Syntactic parsing",
+    "Parsing"
+  ],
+  "capture_group": [],
+  "non_greedy_matching": [
+    "Parsing",
+    "Syntactic parsing"
+  ],
+  "tokenization": [
+    "Text processing",
+    "Text segmentation",
+    "Word boundaries"
+  ],
+  "disjunction_grouping_precedence": [
+    "Parsing",
+    "Syntactic parsing",
+    "Semantic parsing"
+  ],
+  "substitution_capture_groups_eliza": [
+    "Chatbot"
+  ],
+  "'Dynamic Programming'": [
+    "Parsing",
+    "Syntactic parsing",
+    "Semantic parsing"
+  ],
+  "minimum_edit_distance_algorithm": [
+    "Text processing",
+    "Computational linguistics"
+  ],
+  "'Case Folding'": [
+    "Text processing"
+  ],
+  "anchors": [
+    "Coreference resolution",
+    "Named-entity recognition"
+  ],
+  "'A Simple Example'": [
+    "Example-based machine translation",
+    "Predictive text"
+  ],
+  "'The Porter Stemmer'": [
+    "Stemming"
+  ],
+  "'Basic Regular Expression Patterns'": [
+    "Text processing",
+    "Lexical analysis"
+  ],
+  "'Simple Unix Tools for Word Tokenization'": [
+    "Text processing",
+    "Word boundaries",
+    "Lexical analysis"
+  ],
+  "period": [
+    "Sentence boundary disambiguation",
+    "Word boundaries"
+  ]
+}
