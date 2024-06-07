@@ -5,6 +5,8 @@ pydantic-settings
 loguru
 python-dotenv
 janus-swi
+langchain
+langchain-openai
 # monitoring
 black
 tqdm

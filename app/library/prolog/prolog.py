@@ -15,17 +15,25 @@ def load_logic():
     janus.consult(str(path))
 
 
+def preprocess_terms(terms: List[str]) -> List[str]:
+    # if there are any terms that have spaces, surround them with single quotes
+    for i, term in enumerate(terms):
+        if " " in term and not (len(term) > 1 and term[0] + term[-1] == "''"):
+            terms[i] = f"'{term}'"
+
+    return terms
+
 def get_next_step(domain: str, goals: List[str], learned: List[str]) -> List[str]:
     load_concepts(domain)
     load_logic()
 
     # add goals
     if len(goals) != 0:
-        janus.consult("goals", "\n".join([f"hasGoal({goal})." for goal in goals]))
+        janus.consult("goals", "\n".join([f"hasGoal({goal})." for goal in preprocess_terms(goals)]))
 
     # add learned
     if len(learned) != 0:
-        janus.consult("learned", "\n".join([f"hasLearnedConcept({learned})." for learned in learned]))
+        janus.consult("learned", "\n".join([f"hasLearnedConcept({learned})." for learned in preprocess_terms(learned)]))
 
     # get next step
     next_step = janus.query("nextStep(X).")
@@ -36,3 +44,21 @@ def get_next_step(domain: str, goals: List[str], learned: List[str]) -> List[str
 
     return next_steps
 
+
+def get_concepts(domain: str) -> List[str]:
+    load_concepts(domain)
+
+    concepts = janus.query("isConcept(X).")
+
+    concepts_list = []
+    for concept in concepts:
+        concepts_list.append(concept["X"])
+
+    concepts = janus.query("isPartOf(X, _) ; isPrerequisiteOf(X, _) ; isPrerequisiteOf(_, X).")
+    for concept in concepts:
+        concepts_list.append(concept["X"])
+
+    concepts_list = list(set(concepts_list))
+    concepts_list = preprocess_terms(concepts_list)
+
+    return concepts_list

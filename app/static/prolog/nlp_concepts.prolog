@@ -58,6 +58,26 @@ isConcept(case_folding).
 isConcept(the_porter_stemmer).
 isConcept(minimum_edit_distance).
 isConcept(dynamic_programming).
+isConcept('Basic Regular Expression Patterns').
+isConcept('Disjunction, Grouping, and Precedence').
+isConcept('A Simple Example').
+isConcept('More Operators').
+isConcept('A More Complex Example').
+isConcept('Substitution, Capture Groups, and ELIZA').
+isConcept('Lookahead Assertions').
+isConcept('Simple Unix Tools for Word Tokenization').
+isConcept('Word Tokenization').
+isConcept('Top-down (rule-based) tokenization').
+isConcept('Byte-Pair Encoding').
+isConcept('Word Normalization').
+isConcept('Case Folding').
+isConcept('Lemmatization').
+isConcept('Stemming').
+isConcept('The Porter Stemmer').
+isConcept('Minimum Edit Distance').
+isConcept('The Minimum Edit Distance Algorithm').
+isConcept('Dynamic Programming').
+
 
 % Concepts part of sections
 isPartOf(regular_expression, regular_expressions).

@@ -1,11 +1,11 @@
 import janus_swi as janus
 
-from typing import Any
+from typing import Any, List
 from fastapi import APIRouter, status
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
-from app.library.prolog import get_next_step
+from app.library.prolog import get_next_step, get_concepts
 
 router = APIRouter()
 
@@ -52,4 +52,15 @@ async def api_next_step(data: NextStepInput) -> Any:
 
     return JSONResponse({
         "next_steps": next_steps
+    })
+
+
+@router.post(
+    "/concepts",
+    status_code=status.HTTP_200_OK,
+    description="Get concepts.",
+)
+async def api_concepts(domain: str) -> Any:
+    return JSONResponse({
+        "concepts": get_concepts(domain)
     })
